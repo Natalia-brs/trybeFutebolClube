@@ -1,4 +1,4 @@
-const teams =  [
+export const teams =  [
     {
       "id": 1,
       "teamName": "Avaí/Kindermann"
@@ -12,4 +12,8 @@ const teams =  [
       "teamName": "Botafogo"
     },
   ]
- export default teams;
+
+  export const mockID = {
+    "id": 3,
+    "teamName": "Botafogo"
+  }
