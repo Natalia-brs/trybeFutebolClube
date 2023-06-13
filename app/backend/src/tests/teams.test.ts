@@ -24,12 +24,12 @@ describe('Endpoint /teams', () => {
   });
 
   it('Busca por ID', async () => {
-    sinon.stub(Team, 'findByPk').resolves(teams[0] as any);
+    sinon.stub(Team, 'findByPk').resolves(mockID as Team);
     const response = await chai
     .request(app)
     .get('/teams/1');
 
-    expect(response.status).to.be.equal(200);
-    expect(response.body).to.be.deep.equal(teams[0]);
+    expect(response.status).to.be.eq(200);
+    expect(response.body).to.be.deep.eq(mockID);
   });
 });
