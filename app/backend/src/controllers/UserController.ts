@@ -19,4 +19,9 @@ export default class UserController {
 
     return res.status(code).json({ token: data });
   };
+
+  public userRole = async (_req: Request, res: Response) => {
+    const { role } = res.locals.user;
+    return res.status(200).json({ role });
+  };
 }

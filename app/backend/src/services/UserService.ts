@@ -20,4 +20,15 @@ export default class TeamService {
     const userToken = token({ id: findUser.id, role: findUser.role });
     return { code: 200, data: userToken };
   };
+
+  public getRole = async (email: string) => {
+    const userRole = await User.findOne({ where: { email } });
+
+    if (!userRole) {
+      return null;
+    }
+
+    const { role } = userRole.dataValues;
+    return { code: 200, data: role };
+  };
 }

@@ -1,7 +1,7 @@
-import * as JWT from 'jsonwebtoken';
+import { sign, JwtPayload } from 'jsonwebtoken';
 
 const secretKey = process.env.JWT_SECRET || 'qualquercoisa';
 
-const createToken = (payload: JWT.JwtPayload) => JWT.sign(payload, secretKey, { expiresIn: '5d' });
+const createToken = (payload: JwtPayload) => sign(payload, secretKey, { expiresIn: '5d' });
 
 export default createToken;
