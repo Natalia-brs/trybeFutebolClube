@@ -14,7 +14,7 @@ export default class UserController {
     const { code, data, message } = await this.service.userLogin(email, password);
 
     if (!data) {
-      return res.status(code).json(message);
+      return res.status(code).json({ message });
     }
 
     return res.status(code).json({ token: data });
