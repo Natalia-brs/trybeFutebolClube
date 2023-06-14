@@ -40,3 +40,40 @@ export const token = {
   token:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODY3Njg1NDMsImV4cCI6MTY4NzIwMDU0M30.jfh6Z2BbIAD-ZlRPZ-hgAo4H0ypATQi619I2k15impA',
 };
+
+export const matchMock = [
+  {
+    home_team_id: 16,
+    home_team_goals: 1,
+    away_team_id: 8,
+    away_team_goals: 1,
+    in_progress: false,
+  },
+  {
+    home_team_id: 9,
+    home_team_goals: 1,
+    away_team_id: 14,
+    away_team_goals: 1,
+    in_progress: false,
+  },
+  {
+    home_team_id: 4,
+    home_team_goals: 3,
+    away_team_id: 11,
+    away_team_goals: 0,
+    in_progress: false,
+  },
+  {
+    home_team_id: 3,
+    home_team_goals: 0,
+    away_team_id: 2,
+    away_team_goals: 0,
+    in_progress: false,
+  },
+  {
+    home_team_id: 7,
+    home_team_goals: 1,
+    away_team_id: 10,
+    away_team_goals: 1,
+    in_progress: false,
+  },]
