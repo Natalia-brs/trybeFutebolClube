@@ -17,3 +17,18 @@ export const teams =  [
     "id": 3,
     "teamName": "Botafogo"
   }
+
+  export const userLogin = {
+    "email": 'cateblanchett@email.com',
+    "password": '123456'
+  }
+
+  export const noEmail = {
+    "email": '',
+    "password": '123456'
+  }
+
+  export const noPass = {
+    "email": '',
+    "password": ''
+  }
