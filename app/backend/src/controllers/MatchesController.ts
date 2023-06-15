@@ -8,7 +8,16 @@ export default class TeamsController {
     this.matchService = new MatchService();
   }
 
-  public getAll = async (_req: Request, res: Response) => {
+  public getAll = async (req: Request, res: Response) => {
+    const { inProgress } = req.query;
+    if (inProgress) {
+      const { code, data } = await this.matchService.getInProgress(String(inProgress));
+      return res.status(code).json(data);
+    }
+    if (inProgress === 'false') {
+      const { code, data } = await this.matchService.getInProgress(String(inProgress));
+      return res.status(code).json(data);
+    }
     const { code, data } = await this.matchService.getAllMatches();
     return res.status(code).json(data);
   };
