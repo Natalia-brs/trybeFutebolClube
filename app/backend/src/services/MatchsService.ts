@@ -48,4 +48,20 @@ export default class TeamService {
     await MatchModel.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
     return { code: 200, data: { homeTeamGoals, awayTeamGoals } };
   };
+
+  public create = async (
+    homeTeamId: number,
+    homeTeamGoals: number,
+    awayTeamId: number,
+    awayTeamGoals: number,
+  ) => {
+    const createMatch = await MatchModel.create({
+      homeTeamId,
+      homeTeamGoals,
+      awayTeamId,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return { code: 201, data: createMatch };
+  };
 }

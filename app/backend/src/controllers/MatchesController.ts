@@ -36,4 +36,22 @@ export default class TeamsController {
       .uptadeId(id, homeTeamGoals, awayTeamGoals);
     return res.status(uptade.code).json(uptade.data);
   };
+
+  public createMatch = async (req: Request, res: Response) => {
+    const {
+      homeTeamId,
+      homeTeamGoals,
+      awayTeamId,
+      awayTeamGoals,
+    } = req.body;
+
+    const { code, data } = await this.matchService.create(
+      homeTeamId,
+      homeTeamGoals,
+      awayTeamId,
+      awayTeamGoals,
+    );
+
+    return res.status(code).json(data);
+  };
 }
