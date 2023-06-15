@@ -28,4 +28,12 @@ export default class TeamsController {
     const { code, message } = await this.matchService.updateFinished(id);
     return res.status(code).json({ message });
   };
+
+  public updateId = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    const uptade = await this.matchService
+      .uptadeId(id, homeTeamGoals, awayTeamGoals);
+    return res.status(uptade.code).json(uptade.data);
+  };
 }

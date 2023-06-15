@@ -43,4 +43,9 @@ export default class TeamService {
     await MatchModel.update({ inProgress: false }, { where: { id } });
     return { code: 200, message: 'Finished' };
   };
+
+  public uptadeId = async (id: string, homeTeamGoals: number, awayTeamGoals: number) => {
+    await MatchModel.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+    return { code: 200, data: { homeTeamGoals, awayTeamGoals } };
+  };
 }
