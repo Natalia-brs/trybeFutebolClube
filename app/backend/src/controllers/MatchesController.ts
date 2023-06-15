@@ -38,20 +38,17 @@ export default class TeamsController {
   };
 
   public createMatch = async (req: Request, res: Response) => {
-    const {
-      homeTeamId,
-      homeTeamGoals,
-      awayTeamId,
-      awayTeamGoals,
-    } = req.body;
-
-    const { code, data } = await this.matchService.create(
+    const { homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals } = req.body;
+    if (homeTeamId === awayTeamId) {
+      return res.status(422)
+        .json({ message: 'It is not possible to create a match with two equal teams' });
+    }
+    const { code, data, message } = await this.matchService.create(
       homeTeamId,
       homeTeamGoals,
       awayTeamId,
       awayTeamGoals,
     );
-
-    return res.status(code).json(data);
+    return res.status(code).json(data || { message });
   };
 }

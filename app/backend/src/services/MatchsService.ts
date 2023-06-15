@@ -55,6 +55,13 @@ export default class TeamService {
     awayTeamId: number,
     awayTeamGoals: number,
   ) => {
+    const findHome = await MatchModel.findByPk(homeTeamId);
+    const findAway = await MatchModel.findByPk(awayTeamId);
+
+    if (!findHome || !findAway) {
+      return { code: 404, message: 'There is no team with such id!' };
+    }
+
     const createMatch = await MatchModel.create({
       homeTeamId,
       homeTeamGoals,
