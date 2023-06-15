@@ -38,4 +38,9 @@ export default class TeamService {
     });
     return { code: 200, data: inProgressMatches };
   };
+
+  public updateFinished = async (id: string) => {
+    await MatchModel.update({ inProgress: false }, { where: { id } });
+    return { code: 200, message: 'Finished' };
+  };
 }

@@ -21,4 +21,11 @@ export default class TeamsController {
     const { code, data } = await this.matchService.getAllMatches();
     return res.status(code).json(data);
   };
+
+  public finishedMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    Number(id);
+    const { code, message } = await this.matchService.updateFinished(id);
+    return res.status(code).json({ message });
+  };
 }
