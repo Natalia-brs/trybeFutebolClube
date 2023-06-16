@@ -1,6 +1,6 @@
 import ILeaderboard from '../Interfaces/ILeaderBoard';
 
-export default class MatchesResults {
+export default class LeaderBoard {
   public name: string;
 
   public totalPoints: number;
@@ -19,13 +19,13 @@ export default class MatchesResults {
 
   constructor(name: string, matchs: ILeaderboard[]) {
     this.name = name;
-    this.totalPoints = MatchesResults.getTotal(matchs);
+    this.totalPoints = LeaderBoard.getTotal(matchs);
     this.totalGames = matchs.length;
-    this.totalVictories = MatchesResults.victories(matchs);
-    this.totalDraws = MatchesResults.draws(matchs);
-    this.totalLosses = MatchesResults.losses(matchs);
-    this.goalsFavor = MatchesResults.favor(matchs);
-    this.goalsOwn = MatchesResults.own(matchs);
+    this.totalVictories = LeaderBoard.victories(matchs);
+    this.totalDraws = LeaderBoard.draws(matchs);
+    this.totalLosses = LeaderBoard.losses(matchs);
+    this.goalsFavor = LeaderBoard.favor(matchs);
+    this.goalsOwn = LeaderBoard.own(matchs);
   }
 
   private static getTotal = (matches: ILeaderboard[]) => {
