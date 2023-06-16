@@ -60,4 +60,20 @@ export default class MatchesResults {
     });
     return losses;
   };
+
+  private static favor = (matches: ILeaderboard[]) => {
+    let favor = 0;
+    matches.forEach((match) => {
+      favor += match.goalsFavor;
+    });
+    return favor;
+  };
+
+  private static own = (matches: ILeaderboard[]) => {
+    let own = 0;
+    matches.forEach((match) => {
+      own += match.goalsFavor;
+    });
+    return own;
+  };
 }
