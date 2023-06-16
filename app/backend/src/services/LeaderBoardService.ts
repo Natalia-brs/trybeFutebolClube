@@ -31,25 +31,6 @@ export default class LeaderBoardService {
 
     return { code: 200, data: this.orderLeader(matches) };
   };
-
-  // public getAll = async () => {
-  //   const allTeams = await Team.findAll();
-  //   const allMatchs = await Match.findAll({ where: { inProgress: false } });
-  //   const matches: LeaderBoard[] = [];
-
-  //   allTeams.forEach((team) => {
-  //     const filter = allMatchs.filter((matchId) => matchId.homeTeamId === team.id);
-
-  //     const again = filter.map(({ homeTeamGoals, awayTeamGoals }) => ({
-  //       goalsFavor: homeTeamGoals,
-  //       goalsOwn: awayTeamGoals,
-  //     }));
-
-  //     matches.push(new LeaderBoard(team.teamName, again as []));
-  //   });
-
-  //   return { code: 200, data: this.orderLeader(matches) };
-  // };
 }
 
 // pegar todos os time
