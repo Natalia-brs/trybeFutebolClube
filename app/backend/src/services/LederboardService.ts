@@ -22,6 +22,10 @@ export default class MatchesResults {
     this.totalPoints = MatchesResults.getTotal(matchs);
     this.totalGames = matchs.length;
     this.totalVictories = MatchesResults.victories(matchs);
+    this.totalDraws = MatchesResults.draws(matchs);
+    this.totalLosses = MatchesResults.losses(matchs);
+    this.goalsFavor = MatchesResults.favor(matchs);
+    this.goalsOwn = MatchesResults.own(matchs);
   }
 
   private static getTotal = (matches: ILeaderboard[]) => {
@@ -41,4 +45,19 @@ export default class MatchesResults {
     return victories;
   };
 
+  private static draws = (matches: ILeaderboard[]) => {
+    let draws = 0;
+    matches.forEach((match) => {
+      if (match.goalsFavor === match.goalsOwn) draws += 1;
+    });
+    return draws;
+  };
+
+  private static losses = (matches: ILeaderboard[]) => {
+    let losses = 0;
+    matches.forEach((match) => {
+      if (match.goalsFavor < match.goalsOwn) losses += 1;
+    });
+    return losses;
+  };
 }
