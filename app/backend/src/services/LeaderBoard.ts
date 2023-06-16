@@ -17,6 +17,10 @@ export default class LeaderBoard {
 
   public goalsOwn: number;
 
+  public goalsBalance: number;
+
+  public efficiency: string;
+
   constructor(name: string, matchs: ILeaderboard[]) {
     this.name = name;
     this.totalPoints = LeaderBoard.getTotal(matchs);
@@ -26,6 +30,8 @@ export default class LeaderBoard {
     this.totalLosses = LeaderBoard.losses(matchs);
     this.goalsFavor = LeaderBoard.favor(matchs);
     this.goalsOwn = LeaderBoard.own(matchs);
+    this.goalsBalance = this.goalsFavor - this.goalsOwn;
+    this.efficiency = ((this.totalPoints * 100) / (this.totalGames * 3)).toFixed(2).toString();
   }
 
   private static getTotal = (matches: ILeaderboard[]) => {
@@ -72,7 +78,7 @@ export default class LeaderBoard {
   private static own = (matches: ILeaderboard[]) => {
     let own = 0;
     matches.forEach((match) => {
-      own += match.goalsFavor;
+      own += match.goalsOwn;
     });
     return own;
   };
